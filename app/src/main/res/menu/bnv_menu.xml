@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navHomeFragment"
+        android:title="Inicio"
+        android:icon="@drawable/home_icon"/>
+    <item
+        android:id="@+id/navStockFragment"
+        android:title="Stock"
+        android:icon="@drawable/stock_icon"/>
+    <item
+        android:id="@+id/navCryptoFragment"
+        android:title="Crypto"
+        android:icon="@drawable/crypto_icon"/>
+</menu>

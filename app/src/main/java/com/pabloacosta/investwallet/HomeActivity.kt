@@ -1,13 +1,16 @@
 package com.pabloacosta.investwallet
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 enum class ProviderType{
-    BASIC
+    BASIC,
+    GOOGLE,
+    FACEBOOK,
+    TWITTER
 }
 
 class HomeActivity : AppCompatActivity() {
@@ -20,6 +23,12 @@ class HomeActivity : AppCompatActivity() {
         val email = bundle?.getString("email")
         val provider = bundle?.getString("provider")
         setup(email?: "", provider?: "")
+
+        //For saving the state of the APP
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+        prefs.putString("email", email)
+        prefs.putString("provider", provider)
+        prefs.apply()
     }
 
     private fun setup(email: String, provider: String){
@@ -28,6 +37,11 @@ class HomeActivity : AppCompatActivity() {
         providerTextView.text = provider
 
         logOutButton.setOnClickListener {
+            //Cleaning data
+            val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+            prefs.clear()
+            prefs.apply()
+
             FirebaseAuth.getInstance().signOut()
             onBackPressed()
         }

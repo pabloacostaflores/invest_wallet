@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Invest Wallet</string>
+    <string name="prefs_file">com.pabloacosta.investwallet.PREFERENCE_FILE_KEY</string>
 </resources>
