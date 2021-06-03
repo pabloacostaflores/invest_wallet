@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         authLayout.visibility = View.VISIBLE
     }
 
-
+    //This is for saving the state also
     private fun session(){
         val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
         val email = prefs.getString("email", null)
