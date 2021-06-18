@@ -47,7 +47,7 @@ class HomeActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
         when (menuItem.itemId) {
-            R.id.StockFragment -> {
+            R.id.stockFragmentGrid -> {
                 val fragment = StockFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.container, fragment, fragment.javaClass.getSimpleName())
                     .commit()

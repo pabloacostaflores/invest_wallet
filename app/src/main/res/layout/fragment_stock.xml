@@ -2,21 +2,90 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/stockFragment"
+    android:id="@+id/CryptoFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StockFragment">
 
-    <TextView
-        android:id="@+id/StockFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stock Fragment"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <GridLayout
+        android:id="@+id/stockFragmentGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/optionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Opción"
+            app:layout_constraintEnd_toStartOf="@+id/optionsSpinner"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/optionsSpinner"
+            android:layout_width="200dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/optionTextView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ammountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginTop="75dp"
+            android:text="Monto"
+            app:layout_constraintEnd_toStartOf="@+id/ammountEditText"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/optionTextView" />
+
+        <EditText
+            android:id="@+id/ammountEditText"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_marginTop="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ammountTextView"
+            app:layout_constraintTop_toBottomOf="@+id/optionsSpinner" />
+
+        <TextView
+            android:id="@+id/rateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_marginTop="85dp"
+            android:text="Taza"
+            app:layout_constraintEnd_toStartOf="@+id/rateEditText"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ammountTextView" />
+
+        <EditText
+            android:id="@+id/rateEditText"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:layout_marginTop="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/rateTextView"
+            app:layout_constraintTop_toBottomOf="@+id/ammountEditText" />
+
+
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
