@@ -3,7 +3,12 @@ package com.pabloacosta.investwallet
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatViewInflater
 import com.facebook.login.LoginManager
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -30,6 +35,32 @@ class HomeActivity : AppCompatActivity() {
         prefs.putString("email", email)
         prefs.putString("provider", provider)
         prefs.apply()
+
+        bnvMenu.setOnNavigationItemSelectedListener (mOnNavigationItemSelectedListener)
+
+        if (savedInstanceState == null) {
+            val fragment = StockFragment()
+            supportFragmentManager.beginTransaction().replace(R.id.flFragment, fragment, fragment.javaClass.getSimpleName())
+                .commit()
+        }
+    }
+
+    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
+        when (menuItem.itemId) {
+            R.id.stockFragmentGrid -> {
+                val fragment = StockFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.container, fragment, fragment.javaClass.getSimpleName())
+                    .commit()
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.CryptoFragment -> {
+                val fragment = CryptoFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.container, fragment, fragment.javaClass.getSimpleName())
+                    .commit()
+                return@OnNavigationItemSelectedListener true
+            }
+        }
+        false
     }
 
     private fun setup(email: String, provider: String){
