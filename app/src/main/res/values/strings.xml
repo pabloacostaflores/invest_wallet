@@ -5,4 +5,9 @@
     <string name="fb_login_protocol_scheme">fb503639257620922</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="stockOptionsArray">
+        <item>BBVA</item>
+        <item>Finsus</item>
+        <item>Cetes Directo</item>
+    </string-array>
 </resources>
