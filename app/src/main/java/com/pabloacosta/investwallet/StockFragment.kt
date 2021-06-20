@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 class StockFragment : Fragment() {
     /*
     TODO:
-    monto taza y plazo para ir haciendo el calculo de lo que vaya a ganar
+   onto t maza y plazo para ir haciendo el calculo de lo que vaya a ganar
     el valor final queda en una base de datos
     */
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =

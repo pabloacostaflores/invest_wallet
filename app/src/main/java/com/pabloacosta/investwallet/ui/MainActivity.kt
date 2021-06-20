@@ -1,37 +1,32 @@
-package com.pabloacosta.investwallet
+package com.pabloacosta.investwallet.ui
 
 //import android.R
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.LinearLayout
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
-import com.facebook.login.LoginManager
-import com.facebook.login.LoginResult
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.FacebookAuthProvider
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
+import com.pabloacosta.investwallet.Presenter.HomePresenter
+import com.pabloacosta.investwallet.`interface`.HomeInterface
+import com.pabloacosta.investwallet.databinding.ActivityMainBinding
+import dev.ahrsoft.modtoast.ModToast
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity() {
-
+class MainActivity : AppCompatActivity(), HomeInterface.View {
+/*
     private val GOOGLE_SIGN_IN = 100
-    private val callbackManager = CallbackManager.Factory.create()
+    private val callbackManager = CallbackManager.Factory.create()*/
+
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var presenter : HomePresenter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        initView()
 
         /*This part redirects to the "Register Activity", but now it is not going to be used. I will
           leave this in case of necessary.*/
@@ -41,10 +36,45 @@ class MainActivity : AppCompatActivity() {
             val intent:Intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }*/
-        setup()
-        session()
+
+
     }
 
+    private fun initView() {
+        presenter = HomePresenter(this, this)
+        presenter.isLoginUser()
+
+        with(binding){
+            registerButton.setOnClickListener {
+                startActivity(Intent(this@MainActivity, RegisterActivity::class.java))
+            }
+            login_button.setOnClickListener {
+                presenter.loginUser()
+            }
+        }
+    }
+
+    override fun email(): String {
+        return binding.editTextTextEmail.text.toString().trim()
+    }
+
+    override fun password(): String {
+       return binding.editTextTextPassword.text.toString().trim()
+    }
+
+    override fun isLogin() {
+        finish()
+        startActivity(Intent(this, DashActivity::class.java))
+    }
+
+    override fun errorLogin() {
+        ModToast("Usuario y contraseña incorrectos",0)
+    }
+
+    override fun registerUser() {
+        TODO("Not yet implemented")
+    }
+/*
     override fun onStart() {
         super.onStart()
 
@@ -184,5 +214,5 @@ class MainActivity : AppCompatActivity() {
                 showAlert()
             }
         }
-    }
+    }*/
 }
