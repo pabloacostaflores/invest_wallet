@@ -3,7 +3,9 @@ package com.pabloacosta.investwallet.ui
 //import android.R
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.pabloacosta.investwallet.HomeActivity
 import com.pabloacosta.investwallet.Presenter.HomePresenter
 import com.pabloacosta.investwallet.`interface`.HomeInterface
 import com.pabloacosta.investwallet.databinding.ActivityMainBinding
@@ -64,7 +66,7 @@ class MainActivity : AppCompatActivity(), HomeInterface.View {
 
     override fun isLogin() {
         finish()
-        startActivity(Intent(this, DashActivity::class.java))
+        startActivity(Intent(this, HomeActivity::class.java))
     }
 
     override fun errorLogin() {

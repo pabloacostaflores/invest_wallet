@@ -5,69 +5,14 @@
     android:id="@+id/CryptoFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StockFragment">
+    tools:context=".ui.fragments.StockFragment">
 
-    <TextView
-        android:id="@+id/optionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Opción"
-        app:layout_constraintEnd_toStartOf="@+id/optionsSpinner"
-        app:layout_constraintHorizontal_bias="0.5"
+    <WebView
+        android:id="@+id/webViewCrypto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/optionsSpinner"
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/optionTextView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/ammountEditText"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ammountTextView"
-        app:layout_constraintTop_toBottomOf="@+id/optionsSpinner" />
-
-    <TextView
-        android:id="@+id/ammountTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:text="Monto"
-        app:layout_constraintEnd_toStartOf="@+id/ammountEditText"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/optionTextView" />
-
-    <EditText
-        android:id="@+id/rateEditText"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/rateTextView"
-        app:layout_constraintTop_toBottomOf="@+id/ammountEditText" />
-
-    <TextView
-        android:id="@+id/rateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
-        android:text="Taza"
-        app:layout_constraintEnd_toStartOf="@+id/rateEditText"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ammountTextView" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

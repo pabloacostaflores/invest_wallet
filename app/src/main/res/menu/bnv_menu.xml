@@ -3,13 +3,13 @@
     <item
         android:id="@+id/navHomeFragment"
         android:title="Inicio"
-        android:icon="@drawable/home_icon"/>
+        android:icon="@drawable/ic_baseline_home_24"/>
     <item
         android:id="@+id/navStockFragment"
         android:title="Stock"
-        android:icon="@drawable/stock_icon"/>
+        android:icon="@drawable/ic_baseline_business_24"/>
     <item
         android:id="@+id/navCryptoFragment"
         android:title="Crypto"
-        android:icon="@drawable/crypto_icon"/>
+        android:icon="@drawable/ic_baseline_show_chart_24"/>
 </menu>
